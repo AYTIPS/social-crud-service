@@ -34,7 +34,7 @@ def test_bank_transaction(zero_bank_account):
 
 @pytest.mark.parametrize("deposited, withdrew , expected", [
     (200, 100, 100),
-    (50, 10, 40)
+    (50, 10, 40),
     (1200, 200, 1000)
 ]) 
 def test_bank_transaction(zero_bank_account):
