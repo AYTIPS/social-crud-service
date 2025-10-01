@@ -38,7 +38,7 @@ def verify_db_on_start():
 
 @app.get("/")
 async def root():
-   return {'message': "Hello world"}
+   return {'message': "Hello world pelumi "}
 
 
 
