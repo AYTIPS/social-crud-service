@@ -2,7 +2,7 @@ from app.calculations import add ,subtract, multiply, divide, BankAccount, Insuf
 import pytest 
 
 
-@pytest.fixtures
+@pytest.fixture
 def zero_bank_account():
     return BankAccount()
 
