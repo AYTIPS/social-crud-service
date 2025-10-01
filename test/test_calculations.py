@@ -6,6 +6,10 @@ import pytest
 def zero_bank_account():
     return BankAccount()
 
+@pytest.fixture
+def zero_bank_account():
+    return BankAccount(50)
+
 @pytest.mark.parametrize("num1, num2, expected", [
     (3, 2, 5),
     (7, 1, 8)
@@ -32,15 +36,15 @@ def test_bank_transaction(zero_bank_account):
     zero_bank_account.withdraw(100)
     assert zero_bank_account
 
-@pytest.mark.parametrize("deposit, withdrew , expected", [
+@pytest.mark.parametrize("deposited, withdrew , expected", [
     (200, 100, 100),
     (50, 10, 40),
     (1200, 200, 1000)
 ]) 
-def test_bank_transaction(zero_bank_account):
+def test_bank_transaction(zero_bank_account, deposited, withdrew, expected):
     zero_bank_account.deposit(200)
     zero_bank_account.withdraw(100)
-    assert zero_bank_account
+    assert zero_bank_account.balance == expected
 
 def test_insufficient_funds(zero_bank_account):
     with pytest.raises(Insufficient):
